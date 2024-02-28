@@ -48,7 +48,7 @@ router.post(
           .status(400)
           .json({ errors: 'Try logging qith correct credentials' });
       }
-      if (!req.body.password === userData.password) {
+      if (req.body.password !== userData.password) {
         return res
           .status(400)
           .json({ errors: 'Try logging qith correct credentials' });
