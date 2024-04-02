@@ -28,13 +28,23 @@ module.exports.createCategory = async (req, res) => {
 }
 
 
-module.exports.getCategory = (req, res) => {
-  const category = Category.find({});
-  if (category) {
-    res.status(200).send(category);
+module.exports.getCategory = async (req, res) => {
+  try {
+    const category = await Category.find({});
+    if (category) {
+      res.status(200).send(category);
+    }
+
+    else {
+      res.status(404).send('category not found');
+    }
   }
 
-  else {
-    res.status(404).send('category not found');
+
+  catch (err) {
+    console.error(error.message);
+    res.send('Server Error')
   }
+
+
 }
