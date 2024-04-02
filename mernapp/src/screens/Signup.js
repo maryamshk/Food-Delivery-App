@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 function Signup() {
-  const [credentials, setcredentials] = useState({ email: "", password: "" })
+  const [credentials, setcredentials] = useState({
+    name: '',
+    email: '',
+    password: '',
+    location: '',
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
