@@ -1,5 +1,6 @@
 const Category = require("../models/Category");
 
+
 module.exports.createCategory = async (req, res) => {
   const { name } = req.body;
   try {
@@ -30,9 +31,9 @@ module.exports.createCategory = async (req, res) => {
 
 module.exports.getCategory = async (req, res) => {
   try {
-    const category = await Category.find({});
-    if (category) {
-      res.status(200).send(category);
+    allCategories = await Category.find({});
+    if (allCategories) {
+      res.status(200).send(allCategories);
     }
 
     else {
@@ -48,3 +49,4 @@ module.exports.getCategory = async (req, res) => {
 
 
 }
+

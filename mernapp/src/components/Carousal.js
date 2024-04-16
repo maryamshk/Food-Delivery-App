@@ -9,15 +9,15 @@ export default function Carousal() {
         data-bs-ride="carousel" style={{ objectFit: "contain !important" }}
       >
         <div className="carousel-inner" id='carousel'>
-          <div class="carousel-caption d-none d-md-block" style={{ zIndex: "10" }}>
-            <form class="d-flex">
+          <div className="carousel-caption d-none d-md-block" style={{ zIndex: "10" }}>
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success text-white bg-success" type="submit">
+              <button className="btn btn-outline-success text-white bg-success" type="submit">
                 Search
               </button>
             </form>
