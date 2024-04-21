@@ -17,7 +17,10 @@ export default function Home() {
     });
 
     response = await response.json();
-    setFoodItem(response);
+    const category = response.category;
+    const product = response.product;
+    setFoodCategory(category);
+    setFoodItem(product);
 
   }
 
@@ -35,18 +38,33 @@ export default function Home() {
       </div>
       <div className="container">
         {
-          foodItem == []
+          foodCategory == []
             ?
             ""
-            : foodItem.map((data) => {
+            : foodCategory.map((data) => {
               return (
-                <div>"ugh"</div>
+                <div className='mb-3 row'>
+                  <div key={data._id} className='fs-3 m-3'>{data.name}</div>
+                  <hr></hr>
+                  {foodItem == [] ? "" : foodItem.filter((item) =>
+                    item.CategoryName === data.name
+                  ).map((filterItems) => {
+                    return (
+                      <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>
+                        <Card foodName={filterItems.name}
+                          option={filterItems.options[0]}
+                          imgSrc={filterItems.img}
+                        ></Card>
+                      </div>
+                    )
+                  })
+                  }
+                </div>
               )
             })
 
         }
-        <Card />
-      </div>
+      </div >
       <div>
         <Footer />
       </div>

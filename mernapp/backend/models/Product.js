@@ -16,18 +16,10 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
 
-  options: [
-    {
-      half: {
-        type: String,
-        required: true,
-      },
-
-      full: {
-        type: String,
-        required: true,
-      }
-    }
+  options: [{
+    half: String,
+    full: String,
+  }
   ],
 
   description: {

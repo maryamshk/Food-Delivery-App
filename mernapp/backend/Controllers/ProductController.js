@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const Category = require('../models/Category')
 
 module.exports.CreateProduct = async (req, res) => {
   try {
@@ -35,8 +36,9 @@ module.exports.CreateProduct = async (req, res) => {
 module.exports.getProduct = async (req, res) => {
   try {
     const product = await Product.find({});
-    if (product) {
-      res.send(product);
+    const category = await Category.find({});
+    if (product && category) {
+      res.status(200).send({ product: product, category: category });
     }
 
     else {
