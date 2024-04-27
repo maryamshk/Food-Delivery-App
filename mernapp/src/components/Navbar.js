@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem("authToken")
+    navigate('/login')
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -11,11 +16,36 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link className="nav-link" aria-current="page" to="/">Home</Link>
-              <Link className="nav-link" to="/login">Login</Link>
-              <Link className='nav-link' to="/createuser">SignUp</Link>
+            <div className="navbar-nav mr-auto">
+              <Link className="nav-link fs-5" aria-current="page" to="/">Home</Link>
             </div>
+            {localStorage.getItem("authToken") ? (
+              <div className="navbar-nav mr-auto">
+                <Link className="nav-link fs-5" aria-current="page" to="/">My Orders</Link>
+              </div>
+
+            ) :
+              ""
+            }
+
+            {!localStorage.getItem("authToken") ? (
+              <>
+                <div className='ms-auto'>
+                  <Link className="btn bg-white text-success mx-1" to="/login">Login</Link>
+                  <Link className='btn bg-white text-success mx-1' to="/createuser">SignUp</Link>
+                </div>
+              </>
+
+            ) :
+              <>
+                <div className='ms-auto'>
+                  <div className='btn bg-white text-success mx-1'>My Cart</div>
+                  <div className='btn bg-white text-danger mx-1' onClick={handleLogout}>Logout</div>
+                </div>
+
+              </>
+
+            }
           </div>
         </div>
       </nav>
