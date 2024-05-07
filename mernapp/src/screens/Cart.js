@@ -59,7 +59,7 @@ export default function Cart() {
               <tr>
                 <th scope='row' >{index + 1}</th>
                 <td >{food.name}</td>
-                <td>{food.qty}</td>
+                <td>{food.quantity}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
                 <td ><button type="button" className="btn p-0"><DeleteIcon onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
