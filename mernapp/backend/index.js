@@ -20,6 +20,8 @@ app.use(express.json());
 app.use('/api', require('./Routes/AuthRoute'));
 app.use('/api', require('./Routes/ProductRoute'));
 app.use('/api', require('./Routes/CategoryRoute'))
+app.use('/api', require('./Routes/OrderRoute'))
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)

@@ -27,6 +27,10 @@ const reducer = (state, action) => {
       })
       return arr
 
+
+    case "DROP":
+      let empArr = [];
+      return empArr
     default:
       return state;
   }
