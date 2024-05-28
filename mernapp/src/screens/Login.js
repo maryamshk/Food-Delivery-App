@@ -26,7 +26,7 @@ export default function Login() {
 
     if (json.success) {
       localStorage.setItem("authToken", json.authToken);
-      localStorage.setItem('userEmail:', credentials.email)
+      localStorage.setItem('userEmail', credentials.email)
       console.log(localStorage.getItem("authToken"));
       navigate("/");
     }
